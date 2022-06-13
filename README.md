@@ -1,50 +1,91 @@
-# VBA of Wall Street
+# MODULE 4: PyCitySchools with Pandas
 
-## Overview of Project
-In this module, I will be helping my friend Steve, who just got his degree in Finance. Steve’s parents are so proud of him that they decided to become his first clients. Steve’s parents are passionate about green energy. They believe that as fossil fuels get used up, there will be more and more reliance on alternative energy production. However, Steve’s parents haven’t done much research and have instead decided to invest all their money into Daqo New Energy Corporation, a company that makes silicon wafers for solar panels.
+## Overview of the Analysis
+In this module, I will be working with Maria, the chief data scientist for a city school district who is responsible for analyzing information from a variety of sources, and in a variety of formats. She was tasked with preparing all standardized test data for analysis, reporting, and presentation to provide insights about performance trends and patterns. These insights will then be used to inform discussions and strategic decisions at the school and district level.
 
-Steve decided to contact me, an Excel power user, to help him automate tasks using Visual Basic for Applications (VBA). 
+I will be helping Maria to analyze data on student funding, students’ standardized test scores (math and reading), as well as various information on the schools they attend. 
 
 ### Purpose
-* I will help Steve build his financial analisis automating tasks with VBA, reading and writing into cells and worksheets, making calculations to use complex logic to perform analysis and saving this code for later reuse with any stock and reducing the chances of accidents and errors. 
+* Aggregate data and showcase trends in school performance to assist school board and superintendent in making decisions regarding the school budgets and priorities.
 
-## Results
-Steve’s promised to look into Daqo stock for his parents, but he’s concerned about diversifying their funds. He wants to analyze a handful of green energy stocks in addition to Daqo’s stock. For this, he shared with an Excel file containing the stock data he wanted to analyze. Data included the following information regarding 12 different stocks for two different consecutive years, 2017 and 2018, (see Image 2.1  Overview of “Green Stocks” Data):
-- Date
-- Open
-- High
-- Low
-- Close
-- Adj. Close
-- Volume
+## Results of the Analysis
+1. How is the district summary affected? 
 
-I decided to tackle this problem by refactoring some code I already had on hand. Although the code I already had worked well for a dozen stocks, it might not work as well for thousands of stocks. I want Steve to be able to analyze the entire stock market over the last few years at the click of a button taking into consideration that I don’t want it to take a long time to execute.
+**Table 2.1. District Summary Percentage Change**
+| SUBJECT | BEFORE | AFTER | PERCENTAGE CHANGE
+| ----------- | ----------- | ----------- | -----------
+| Average Math Score | 0.984375 | 0.28125 | -71%
+| Average Reading Score | 1.078125 | 0.359375 | -67%
+| % Passing Math | 1.078125 | 0.359375 | -67%
+| % Passing Reading | 1.078125 | 0.359375 | -67%
+| % Overall Passing | 1.078125 | 0.359375 | -67%
 
-Refactoring is a key part of the coding process. When refactoring code, you aren’t adding new functionality; you just want to make the code more efficient—by taking fewer steps, using less memory, or improving the logic of the code to make it easier for future users to read.
+2. How is the school summary affected? 
 
-I decided to refactor my original code implementing the following steps:
-1. Create a ticker index
-2. Create three output arrays (tickerVolumes, tickerStartingPrices, and tickerEndingPrices)
-3. Create a for loop to initialize the tickerVolumes to zero. 
-4. Loop over all the rows in the spreadsheet. 
-5. Increase volume for current ticker
-6. Check if the current row is the first row with the selected tickerIndex.
-7. Check if the current row is the last row with the selected ticker. If the next row’s ticker doesn’t match, increase the tickerIndex
-8. Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
+**Table 2.2. School Summary Percentage Change**
+| SUBJECT | BEFORE | AFTER | PERCENTAGE CHANGE
+| ----------- | ----------- | ----------- | -----------
+| Average Math Score | 83.418349 | 83.350937 | -0.08%
+| Average Reading Score | 83.84893 | 83.896082 | 0.06%
+| % Passing Math | 93.272171 | 93.18569 | -0.09%
+| % Passing Reading | 97.308869 | 97.018739 | -0.30%
+| % Overall Passing | 90.948012 | 90.630324 | -0.35%
 
-The main difference between the refactored code and the original code is that for the original code an array was created containing each of the twelve stock tickers and two for loops were created to iterate over the tickers and then iterate over all the rows of data. In contrast, for the refactored code I included the “tickerIndex” variable as a counter helping me to implicitly move through indexing along the array of stock tickers instead of explicitly having two for loops. My hypothesis was that two for loops use more computer power in relation to indexing.
+3. How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools? 
 
-Table 2.1 Response Time in Seconds Original vs. Refactored Code
+**Table 2.3.a. Thomas High School Math and Reading Scores Change in Relation to Cabrera High School**
+| SUBJECT | BEFORE | AFTER | PERCENTAGE CHANGE
+| ----------- | ----------- | ----------- | -----------
+| Average Math Score | 83.061895 | -0.43% | -0.35%| 0.08%
+| Average Reading Score | 83.975780 | 0.15% | 0.09% | 0.06%
+| % Passing Math | 94.133477 | 0.92% | 1.02% | -0.09%
+| % Passing Reading | 97.039828 | -0.28% | 0.02% | 0.25%
+| % Overall Passing | 91.334769 | 0.43% | 0.78% | -0.35%
+
+**Table 2.3.b. Thomas High School Math and Reading Scores Change in Relation to Griffin High School**
+| SUBJECT | BEFORE | AFTER | PERCENTAGE CHANGE
+| ----------- | ----------- | ----------- | -----------
+| Average Math Score | 83.351499 | 0.08% | 0.00% | 0.08%
+| Average Reading Score | 83.816757 | 0.04% | 0.09% | -0.06%
+| % Passing Math | 93.392371 | -0.13% | -0.22% | -0.09%
+| % Passing Reading | 97.138965 | 0.17% | -0.12% | 0.05%
+| % Overall Passing | 90.599455 | 0.38% | 0.03% | 0.35%
+
+4. How does replacing the ninth-grade scores affect the following: 
+  4a. Math and reading scores by grade:
+  
+The only affected school is 9th grade observations for Thomas High School. Therefore, no data is altered for any school nor grades, except for 9th grade observations for Thomas High School, having a NaN in our summary in this case.
+
+  4b. Scores by school spending:
+  
+Given the significant numbers we are working with, there are no significant changes in any case except for “% Passing Reading”, where the change is sufficient to help round our numbers to the previous integer number.
+
+  4c. Scores by school size:
+
+Given the significant numbers we are working with, there are no significant changes in any case except for “% Passing Reading”, where the change is sufficient to help round our numbers to the previous integer number.
+  
+  4d. Scores by school type
+
+Given the significant numbers we are working with, there are no significant changes in any case except for “% Passing Reading”, where the change is sufficient to help round our numbers to the previous integer number.
+
+
+**Table 2.1 Response Time in Seconds Original vs. Refactored Code**
 | YEAR | ORIGINAL | REFACTORED | % CHANGE | AVERAGE % CHANGE
 | ----------- | ----------- | ----------- | ----------- | -----------
 | 2017 | 0.984375 | 0.28125 | -71% | -69%
 | 2018 | 1.078125 | 0.359375 | -67% | -69%
 
-As seen on Table 2.1  Response Time in Seconds Original vs. Refactored Code, at first glance, refactoring the code confirmed my original hypothesis. Indeed, moving through indexing along the array of stock tickers instead of explicitly having two for loops is computationally more efficient, in both cases (2017 and 2018), reducing response time by 71% and 67%, respectively, and 69% on average!
+## Summary of the Analysis
+Four changes to the school district analysis after reading and math scores have been replaced:
+1. District summary
+2. School summary
+3. Grade difference between Cabrera and Griffin High Schools
+4. Percentage of passing for reading tests for all four sub analyses: 
 
-## Summary
-### Advantages
-In this case, the main obvious advantage is the reduction in response time that implementing only one for loop has. People always work under limitations, budgets, human resources, time, and equipment are some of the constraints people face in their day-to-day life. For this reason, implementing more efficient code can help teams and organizations better adapt to time and equipment constraints, e.g., analysts have to work with 8 GB RAM equipment and face pre established deadlines which means they have to make the best use of their resources to meet their goals.
-
-### Disadvantages
-Although response time reduction is great in and on itself, it can have some disadvantages. For example, having only one for loop and using indexing to move through an array can be less intuitive, especially if code is not properly commented and commit comments are not descriptive enough. Also, if there is a team who work under certain style of code and some else implements new changes it can cause communication / misunderstandings among the team, possibly impacting the work pipeline and having to set everything back to one coding style to standardize work. 
+  4a. Math and reading scores by grade 
+  
+  4b. Scores by school spending 
+  
+  4c. Scores by school size 
+  
+  4d. Scores by school type
