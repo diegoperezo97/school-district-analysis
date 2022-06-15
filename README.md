@@ -1,6 +1,6 @@
 # MODULE 4: PyCitySchools with Pandas
 
-I'll learn about Jupyter notebooks and the fundamentals of Pandas in this subject. A Python package for data analysis and manipulation is called Pandas. To extract raw data from a CSV file, clean and analyze the data, combine data sets, conduct computations, and build tables, I'll use Pandas and the Jupyter notebook.
+I'll learn about Jupyter notebooks and the fundamentals of Pandas in this subject. Pandas is a Python package for data analysis and manipulation is called used to extract raw data from a CSV file, clean and analyze the data, combine data sets, conduct computations, and build tables. 
 
 Each of these activities is a step in the data wrangling or data munching process that data analysts use to clean, sort, and transform data into a format that can be more readily evaluated and used to convey information. By organizing the data by data type, formatting the rows and columns, and sorting or grouping the data, I may wish to modify the way my data is organized or add structure throughout the data wrangling process. I might also need to choose whether to preserve or discard missing values and decide how to deal with values that don't match. I may need to decide whether to concatenate or combine several data sets with the same raw structure into a single, sizable dataset.
 
